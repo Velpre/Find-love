@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Et forslag</title>
+</head>
+<!-- Enkel CSS style -->
+<style>
+	h1 {
+		text-align: center;
+	}
+	.main {
+		text-align: center;
+	}
+</style>
+<body>
+	<div>
+		<header>
+			<h1>FindYourLove</h1>
+		</header>
+
+		<nav>
+			<ul>
+				<li><a href="alle-profiler.html">Alle profiler</a></li>
+				<li><a href="valgfri-funksjonalitet.html">Match Kalkulator</a></li>
+			</ul>
+		</nav>
+
+		<main class="main">
+
+			<section>
+				<label>Tast inn ønsket alder:</label>
+				<input id="alder" type="text"><br>
+				<label>Mann eller kvinne?</label>
+				<input id="kjønn" type="text">
+				<input id="button" type="button" value="Vis forslag">
+			</section>
+
+			<section>
+				<!-- Skriv ut en profil her -->
+				<p id="profile"></p>
+			</section>
+
+		</main>
+
+	</div>
+
+	<script type="text/javascript">
+		// HTML objects
+		var alder = document.getElementById("alder");
+		var kjønn = document.getElementById("kjønn");
+		var profile = document.getElementById("profile");
+		var button = document.getElementById("button");
+
+		// Profiler array
+		var woman1 = ["Clara Schumman ", 24 + " år", " Liker musikk og kreative personer"];
+		var woman1Photo = ["images/woman1.jpg"];
+		var woman2 = ["Marta Fascina ", 27 + " år", " Liker å gå tur og er glad i natur"];
+		var woman2Photo = ["images/woman2.jpg"];
+		var woman3 = [" Ana De Armas ", 23 + " år", " Liker film og skuespill"];
+		var woman3Photo = ["images/woman3.jpg"];
+		var man1 = ["Markus Olafsson ", 26 + " år", " Kan virke litt sur ved første blikk men egentlig veldig snill"];
+		var man1Photo = ["images/man1.jpg"];
+		var man2 = ["Keving Kings ", 24 + " år", " Snill gutt, glad i basket"];
+		var man2Photo = ["images/man2.jpg"];
+		var man3 = ["Ola Olsson ", 26 + " år", " Stabilt man som ønsker noe seriøst"];
+		var man3Photo = ["images/man3.jpg"];
+
+		// Function
+		function show() {
+			var alderValue = alder.value;
+			var kjønnValue = kjønn.value;
+			if (alderValue > 25 && kjønnValue.toLowerCase() === "kvinne") {
+				profile.innerHTML = `
+				${woman2} <br>
+				<img src="${woman2Photo}">
+				`
+
+			} else if (alderValue <= 25 && kjønnValue.toLowerCase() === "kvinne") {
+				profile.innerHTML = `
+				${woman1} <br>
+				<img src="${woman1Photo}"> <br> <hr>
+				${woman3} <br>
+				<img src="${woman3Photo}"  >
+				`
+
+			} else if (alderValue > 25 && kjønnValue.toLowerCase() === "mann") {
+				profile.innerHTML = `
+				${man1} <br>
+				<img src="${man1Photo}"> <br> <hr>
+				${man3} <br>
+				<img src="${man3Photo}"  >
+				`
+
+				
+			} else if (alderValue <= 25 && kjønnValue.toLowerCase() === "mann") {
+				profile.innerHTML = `
+				${man2} <br>
+				<img src="${man2Photo}">
+				`
+			}
+		}
+
+		// Button
+		button.onclick = show;
+
+	</script>
+</body>
+
+</html>

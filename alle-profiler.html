@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>FindYourLove</title>
+</head>
+<!-- Enkel CSS style -->
+<style media="screen">
+
+	.profiles {
+		text-align: center;
+	}
+
+	h1 {
+		text-align: center;
+	}
+
+</style>
+
+<body>
+
+	<div>
+
+		<header>
+			<h1>FindYourLove - Alle profiler</h1>
+		</header>
+
+		<nav>
+			<ul>
+				<li><a href="alle-profiler.html">Alle profiler</a></li>
+				<li><a href="profil-forslag.html">Søk partner</a></li>
+				<li><a href="valgfri-funksjonalitet.html">Match Kalkulator</a></li>
+			</ul>
+		</nav>
+
+		<section class="profiles">
+
+			<h2>Profiler</h2>
+			<h3>Damer:</h3>
+			<p id="woman"></p>
+			<h3>Menn:</h3>
+			<p id="man"></p>
+
+		</section>
+	</div>
+
+	<script type="text/javascript">
+
+		// HTML objects
+		var womanProfils = document.getElementById("woman");
+		var manProfils = document.getElementById("man");
+
+		// Profiler array
+		var namesWoman = ["Clara Schumman", "Marta Fascina", "Ana De Armas"];
+		var namesMan = ["Markus Olafsson", "Keving Kings", "Ola Olsson"];
+		var ageWoman = [24, 27, 23];
+		var ageMan = [26, 24, 26];
+		var interesWoman = ["Liker musikk og kreative personer", "Liker å gå tur og glad i natur", "Liker film og skuespill"];
+		var interesMan = ["Kan virke litt sur ved første blikk men egentlig veldig snill", "Snill gutt, glad i basket", "Stabilt man som ønsker noe seriøst"];
+		var imagesWoman = ["woman1.jpg", "woman2.jpg", "woman3.jpg"];
+		var imagesMan = ["man1.jpg", "man2.jpg", "man3.jpg"];
+
+		// Løkke
+		for (var i = 0; i < namesWoman.length; i++) {
+			womanProfils.innerHTML += `
+			<p>Navn:${namesWoman[i]}</p>
+			<p>Alder:${ageWoman[i]}</p>
+			<p>Interesser:${interesWoman[i]}</p>
+			<img src= "images/${imagesWoman[i]}">
+			<hr>
+			<br>
+			`
+		}
+		for (var i = 0; i < namesWoman.length; i++) {
+			manProfils.innerHTML += `
+			<p>Navn:${namesMan[i]}</p>
+			<p>Alder:${ageMan[i]}</p>
+			<p>Interesser:${interesMan[i]}</p>
+			<img src= "images/${imagesMan[i]}">
+			<hr>
+			<br>
+			`
+		}
+	</script>
+</body>
+</html>

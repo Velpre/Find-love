@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Match kalkulator</title>
+</head>
+<!-- Enkel CSS style -->
+<style>
+
+	body{
+		text-align: center;
+	}
+	ul{
+list-style:none;
+}
+
+</style>
+
+<body>
+
+	<h1>Match kalkulator</h1>
+
+	<nav>
+		<ul>
+			<li><a href="alle-profiler.html">Alle profiler</a></li>
+			<li><a href="profil-forslag.html">Søk partner</a></li>
+		</ul>
+	</nav>
+
+	<p>Bruk vår match kalkulator og finn ut hvor bra du passer med din utvalgt partner.</p>
+
+	<label>Navnet ditt:</label>
+	<input id="navnet-dit" type="text" name="" value="">
+	<label for="">Navnet til din kjære</label>
+	<input id="navnet-kjære" type="text">
+	<input id="button" type="button" name="" value="Regn ut">
+
+	<p id="score"></p>
+
+<script type="text/javascript">
+
+// HTML objects
+var navnetDit = document.getElementById("navnet-dit");
+var navnetKjære = document.getElementById("navnet-kjære");
+var score = document.getElementById("score");
+var button = document.getElementById("button");
+
+// Variabel
+var randomScore = Math.round(Math.random()*100);
+
+// Function
+function regnUt(){
+	var tom = document.getElementById("navnet-dit").value;
+	var tom1 = document.getElementById("navnet-kjære").value;
+	var randomScore = Math.round(Math.random()*100);
+
+	if (randomScore<=35 && randomScore >=0) {
+		score.innerHTML = `Din lovescore er ${randomScore} %. Kanskje ikke det beste du kunne funnet.`;
+	}else if (randomScore>=36 && randomScore <=75) {
+		score.innerHTML = `Din lovescore er ${randomScore} %. Det er ikke så verst men det finnes bedre.`;
+	}else if (randomScore >76) {
+		score.innerHTML = `Din lovescore er ${randomScore} %. Dere er født for hverandre.`;
+	}
+
+if (tom == "" || tom1 =="") {
+	score.innerHTML = `Du må legge inn navn`;
+} else if (!isNaN(tom) || !isNaN(tom1)){
+	score.innerHTML = `Det må være navn og ikke nummer`;
+}
+}
+
+// Button
+button.onclick= regnUt;
+
+</script>
+</body>
+
+</html>
